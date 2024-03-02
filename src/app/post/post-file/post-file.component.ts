@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+
+const DEFAULT_POST_CONTENTS: string = "Type your post here";
 
 @Component({
   selector: 'app-post-file',
@@ -6,10 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './post-file.component.css'
 })
 export class PostFileComponent {
-  textInputContents: string = "Type your post here"
-  posts: Array<string> = []
+  textInputContents: string = DEFAULT_POST_CONTENTS;
+  @Output() postEmmitter = new EventEmitter<String>;
 
   onSubmitPost() {
-    this.posts.push(this.textInputContents)
+    this.postEmmitter.emit(this.textInputContents);
+    this.textInputContents = DEFAULT_POST_CONTENTS;
   }
 }

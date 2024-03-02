@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Post from './post/post.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'a3';
+  title: string = 'a3';
+  posts: Post[] = [];
+  nextPostId: number = 0;
+
+  createPost(postContents: string) {
+    var post: Post = {id: this.nextPostId++, content: postContents};
+
+    this.posts.push(post);
+  }
 }

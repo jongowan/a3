@@ -1,2 +1,7 @@
 <app-header></app-header>
-<app-post-file></app-post-file>
+<mat-card id="inputCard">
+  <app-post-file (postEmmitter)="createPost($event)"></app-post-file>
+</mat-card>
+<mat-card id="postsCard">
+  <app-post-list [posts]="posts"></app-post-list>
+</mat-card>

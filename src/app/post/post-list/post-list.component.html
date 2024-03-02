@@ -1,0 +1,8 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Post {{ posts.length + 1 }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <p *ngFor="let post of posts">{{ post.content }}</p>
+</mat-expansion-panel>
