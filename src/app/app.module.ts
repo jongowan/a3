@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule} from '@angular/material/input'
+import { MatCardModule } from '@angular/material/card'
+import {MatButtonModule} from '@angular/material/button'
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatExpansionModule} from '@angular/material/expansion'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostFileComponent } from './post/post-file/post-file.component';
-import { HeaderComponent } from './head-create/header/header.component';
+import { PostComponent } from './posts/post-create/post/post.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './post/post-list/post-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostFileComponent,
+    PostComponent,
     HeaderComponent,
     PostListComponent
   ],
@@ -23,12 +25,15 @@ import { PostListComponent } from './post/post-list/post-list.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MatInputModule,
     MatCardModule,
-    MatExpansionModule,
-    BrowserAnimationsModule,
-    MatToolbarModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,6 @@
 <app-header></app-header>
-<mat-card id="inputCard">
-  <app-post-file (postEmmitter)="createPost($event)"></app-post-file>
-</mat-card>
-<mat-card id="postsCard">
-  <app-post-list [posts]="posts"></app-post-list>
-</mat-card>
+<main>
+  <app-post (postCreated)="onPostAdded($event)"></app-post>
+  <app-post-list [posts]="storedPost"></app-post-list>
+</main>
+
