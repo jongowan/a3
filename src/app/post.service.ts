@@ -15,10 +15,8 @@ export class PostService {
   }
 
   addPost(title: string, content: string){
-    console.log("addPost is called with " + title + ", " + content)
     const post: Post = {title: title, content: content};
     this.posts.push(post);
-    console.log([...this.posts])
     this.postUpDate.next([...this.posts])
   }
 
